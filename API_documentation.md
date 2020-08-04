@@ -2,8 +2,6 @@
 
 All endpoints will be documented here. All endpoints will respond with a status code of 200 on a successful request unless otherwise indicated. Likewise, all requests will respond with a 400 indicating a bad request unless otherwise indicated. Lastly, a 500 status code will be used when there is an internal server fault.
 
-For pagination and filtering refer to these docs. [https://www.npmjs.com/package/json-server](https://www.npmjs.com/package/json-server)
-
 ## Table of Contents
 
 - [Films](#films)
@@ -13,7 +11,9 @@ For pagination and filtering refer to these docs. [https://www.npmjs.com/package
 - [Starships](#starships)
 - [Transport](#transport)
 - [Vehicles](#vehicles)
+- [Images](#images)
 - [Meta](#meta)
+- [Searching](#searching)
 
 ### Films
 
@@ -588,6 +588,22 @@ Success Response
 }
 ```
 
+### Images
+
+Base Url: `/`
+
+#### Get an image
+
+URL: `/:filename`
+
+The filenames for images supported by this API are mentioned in the applicable records. For example, the sandcrawler (`/vehicles/4`) has `"image": "sand_crawler.jpg"`. To access that image, send a request to `/sand_crawler.jpg`
+
+Success Response
+
+```
+Will display an image
+```
+
 ### Meta
 
 Base URL: `/meta`
@@ -620,3 +636,20 @@ Success Response
   "timeSinceLastReboot": "6 seconds"
 }
 ```
+
+### Searching
+
+You can filter and search on the following endpoints:
+- Films
+- People
+- Planets
+- Species
+- Starships
+- Transport
+- Vehicles
+
+- For full text searching, use the query string parameter `q`
+  - For example, `/planets?q=rainforests` will return all planet records that mention rainforests.
+- For filtration, use the query string parameter `?{prop}_like` where {prop} is the property you want to filter on
+  - For example, `/people?name_like=skywalker` will return all people with 'skywalker' in the name field (not case sensitive)
+- For additional notes on pagination and filtering, refer to these docs. [https://www.npmjs.com/package/json-server](https://www.npmjs.com/package/json-server)
