@@ -2,7 +2,7 @@
 
 All endpoints will be documented here. All endpoints will respond with a status code of 200 on a successful request unless otherwise indicated. Likewise, all requests will respond with a 400 indicating a bad request unless otherwise indicated. Lastly, a 500 status code will be used when there is an internal server fault.
 
-*Base Url*: https://swapi.devmountain.com
+Base Url: `https://swapi.devmountain.com`
 
 ## Table of Contents
 
